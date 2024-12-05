@@ -22,6 +22,7 @@ const Auth = () => {
             const response = await axios.post(url, payload, {
                 headers: { 'Content-Type': 'application/json' },
             });
+            // @ts-expect-error
             alert(`Success: ${response.data.message}`);
             setDepartmentName('');
             setPassword('');
