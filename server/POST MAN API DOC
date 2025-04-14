@@ -1,0 +1,79 @@
+
+📚 Attendance System API (Postman-style Doc)
+🛠 Base URL:
+http://localhost:5000/api
+
+
+🔐 Auth Routes
+POST /auth/admin/register
+✅ Admin Registration
+
+Body (JSON):
+
+{
+  "username": "admin",
+  "email": "admin@example.com",
+  "password": "123456"
+}
+
+
+POST /auth/admin/login
+✅ Admin Login
+
+Body (JSON):
+{
+  "email": "admin@example.com",
+  "password": "123456"
+}
+🔐 Returns: JWT Token
+
+👤 User Management (Admin Only)
+POST /users
+✅ Create a new user
+
+Headers:
+
+Authorization: Bearer <admin_token>
+
+Body (JSON):
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "role": "user"
+}
+GET /users
+✅ Get all users
+
+Headers:
+
+Authorization: Bearer <admin_token>
+
+🕒 Attendance Routes
+POST /attendance/:userId
+✅ Mark attendance for a user
+
+Headers:
+
+Authorization: Bearer <admin_token>
+
+Params:
+
+userId – the ID of the user
+
+GET /attendance/:userId
+✅ Get attendance records for a user
+
+Headers:
+
+Authorization: Bearer <admin_token>
+
+Params:
+
+userId – the ID of the user
+
+GET /attendance
+✅ Get all attendance records
+
+Headers:
+
+Authorization: Bearer <admin_token>
