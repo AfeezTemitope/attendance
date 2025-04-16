@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server/server.js",
-    "start": "node server/server.js"
+    "dev": "cross-env NODE_ENV=development nodemon server/server.js",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client",
+    "start": "cross-env NODE_ENV=production node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -30,5 +31,8 @@
     "mongoose": "^8.13.2",
     "nodemon": "^3.1.9",
     "path-to-regexp": "^8.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
