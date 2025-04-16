@@ -38,6 +38,7 @@ const AdminLogin = () => {
             const res = await axios.post('/api/admin/login', { username, password });
             if (res.data.token) {
                 localStorage.setItem('adminToken', res.data.token);
+                console.log(localStorage.getItem('adminToken'));
                 toast({
                     title: "Login Successful",
                     description: "You have successfully logged in.",
@@ -45,7 +46,7 @@ const AdminLogin = () => {
                     duration: 3000,
                     isClosable: true,
                 });
-                navigate('/admin');
+                navigate('/attendance');
             } else {
                 setError('Login failed: Invalid response from server');
                 toast({

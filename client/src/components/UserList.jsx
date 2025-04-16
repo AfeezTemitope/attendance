@@ -30,7 +30,7 @@ const UserList = () => {
         try {
             const token = localStorage.getItem('adminToken');
             const res = await axios.get('/api/admin/users', {
-                headers: { 'x-auth-token': token },
+                headers: { Authorization: `Bearer ${token}` },
             });
             setUsers(res.data);
         } catch (err) {
@@ -52,7 +52,7 @@ const UserList = () => {
         try {
             const token = localStorage.getItem('adminToken');
             const config = {
-                headers: { 'x-auth-token': token },
+                headers: { Authorization: `Bearer ${token}` },
             };
             if (editId) {
                 const res = await axios.put(
@@ -103,7 +103,7 @@ const UserList = () => {
         try {
             const token = localStorage.getItem('adminToken');
             await axios.delete(`/api/admin/users/${id}`, {
-                headers: { 'x-auth-token': token },
+                headers: { Authorization: `Bearer ${token}` },
             });
             setUsers(users.filter((user) => user._id !== id));
             toast({

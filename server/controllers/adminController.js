@@ -5,8 +5,8 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
-    const { username, password, companyName } = req.body;
-    if (!username || !password || !companyName) {
+    const { username, email, password, companyName } = req.body;
+    if (!username || !email || !password || !companyName) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
@@ -15,7 +15,7 @@ export const register = async (req, res) => {
         if (exists) return res.status(400).json({ message: 'Username already exists' });
 
         const hashedPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
-        const admin = new Admin({ username, password: hashedPassword, companyName });
+        const admin = new Admin({ username, email, password: hashedPassword, companyName });
         await admin.save();
 
         const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET_ADMIN, { expiresIn: '1h' });
