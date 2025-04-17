@@ -141,7 +141,7 @@ const MarkAttendance = () => {
                                             mr={3}
                                             boxSize={3}
                                         />
-                                        {/*<Text fontSize="sm">{attendee.name} ({attendee.userCode})</Text>*/}
+                                        <Text fontSize="sm">{attendee.name} ({attendee.userCode})</Text>
                                     </Flex>
                                 ))}
                             </Box>
