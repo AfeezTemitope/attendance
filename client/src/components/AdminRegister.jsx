@@ -13,7 +13,7 @@ const AdminRegister = () => {
 
     const handleRegister = async () => {
         const payload = { username, email, password, companyName };
-        console.log('Sending payload:', payload); // Debug payload
+    
         try {
             const res = await axios.post('/api/admin/register', payload);
             localStorage.setItem('adminToken', res.data.token);
@@ -25,7 +25,7 @@ const AdminRegister = () => {
                 isClosable: true,
                 position: 'top'
             });
-            navigate('/admin');
+            navigate('/attendance');
         } catch (err) {
             toast({
                 title: 'Registration Failed',

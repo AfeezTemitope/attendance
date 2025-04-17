@@ -2,10 +2,11 @@
 📚 Attendance System API (Postman-style Doc)
 🛠 Base URL:
 http://localhost:5000/api
+//    "build": "npm install && npm install --prefix client && npm run build --prefix client",
 
 
 🔐 Auth Routes
-POST /auth/admin/register
+POST /api/admin/register
 ✅ Admin Registration
 
 Body (JSON):
