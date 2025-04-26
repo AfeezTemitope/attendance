@@ -1,4 +1,3 @@
-
 {
   "version": 2,
   "builds": [
@@ -7,18 +6,21 @@
       "use": "@vercel/node"
     },
     {
-      "src": "client/build/**/*",
+      "src": "client/dist/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server/server.js"
+      "dest": "/server/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "client/build/$1"
+      "dest": "/client/dist/index.html"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

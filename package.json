@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "postinstall": "rm -rf node_modules && npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/server.js",
     "build": "npm install && npm install --prefix client  && npm run build --prefix client",
