@@ -21,7 +21,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api', apiRoutes)
-
+app.get('/api/health', (req, res) => res.status(200).json({ status: 'OK' }));
 
 app.use(express.static(path.join(__dirname, '/client/dist')))
 app.get("*", (req, res) => {
